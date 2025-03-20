@@ -32,7 +32,7 @@ unsigned long long factorial(int num){
     unsigned long long res = 1;
 
     //paralelizar con reduccion en multiplicacion
-    #pragma omp simd
+    #pragma omp parallel for simd reduction(*:res)
     for (int i =1; i <= num; i++){
         
         res *= i; //multiplicacion paralelizada
