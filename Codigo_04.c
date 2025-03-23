@@ -36,24 +36,35 @@ void func2(int *data, int n)
 
 int main()
 {
+    //Variables para los for y el tamaño de los arrays 
     int n = 15;
+    //Inicializamos dos arrays
     int data1[15], data2[15];
 
+    //Llenamos los arrays con valores del 1 al 15
     for (int i = 0; i < n; i++)
     {
         data1[i] = i + 1;
         data2[i] = i + 1;
     }
 
+    //Hacemos uso de la directiva parallel sections para que se ejecute en paralelo
 #pragma omp parallel sections
     {
-#pragma omp section
+        //Seccion 1 
+        //Se manda a llamar la funcion func1 con los parametros data1 y n
+        //Se ordena de manera ascendente 
+        #pragma omp section
         func1(data1, n);
-
+        
+        //Seccion 2
+        //Se manda a llamar la funcion func2 con los parametros data2 y n
+        //Se ordena de manera descendente 
 #pragma omp section
         func2(data2, n);
     }
 
+    //Imprimimos los resultados de los arrays resultantes
     printf("Resultados de data1:\n");
     for (int i = 0; i < n; i++)
     {
