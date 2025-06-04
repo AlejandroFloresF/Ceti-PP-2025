@@ -20,7 +20,6 @@
  */
 
 public class StencilAverage {
-
   public static void main(String[] args) {
     // Inicializamos una matriz de enteros
     int[][] matrix = {
@@ -28,14 +27,12 @@ public class StencilAverage {
         { 4, 5, 6 },
         { 7, 8, 9 }
     };
-
     // Calculamos la matriz promedio usando Stencil
     int[][] result = applyStencilAverage(matrix);
 
     // Mostramos resultado
     printMatrix(result);
   }
-
   // Aplica el promedio con vecinos (Stencil)
   public static int[][] applyStencilAverage(int[][] matrix) {
     //Obtenemos las dimensiones de la matriz
@@ -43,7 +40,6 @@ public class StencilAverage {
     int cols = matrix[0].length;
     // Creamos una matriz para almacenar el resultado
     int[][] result = new int[rows][cols];
-
     // Recorrer cada celda
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -51,9 +47,7 @@ public class StencilAverage {
         int sum = matrix[i][j];
         // Empezamos con el valor de la celda actual
         int count = 1;
-
         // Verificamos vecinos y los sumamos si están dentro de los límites
-        
         //Arriba
         if (i > 0) {
           sum += matrix[i - 1][j];
@@ -74,7 +68,6 @@ public class StencilAverage {
           sum += matrix[i][j + 1];
           count++;
         }
-
         // Calculamos el promedio y lo guardamos en la matriz resultado
         result[i][j] = sum / count;
       }

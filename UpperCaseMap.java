@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 
 
 public class UpperCaseMap {
-
   public static void main(String[] args) {
     // Lista original de nombres
     List<String> names = Arrays.asList("alejandro", "ceti", "luna", "computacion");

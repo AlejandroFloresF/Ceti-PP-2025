@@ -40,13 +40,17 @@ public class LongestCommonPrefixReduction {
 
     // Función combinatoria que retorna el prefijo común entre dos palabras
     public static String commonPrefix(String a, String b) {
+        // Encuentramos el minLength para evitar IndexOutOfBoundsException
         int minLength = Math.min(a.length(), b.length());
 
+        // Comparamos caracter por caracter 
         for (int i = 0; i < minLength; i++) {
+            // Si los caracteres no coinciden, retornamos el prefijo comun encontrado
             if (a.charAt(i) != b.charAt(i)) {
                 return a.substring(0, i);
             }
         }
+        // si todos los caracteres coinciden hasta el minLength, retornamos el prefijo comun.
         return a.substring(0, minLength);
     }
 }
