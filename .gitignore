@@ -1,0 +1,5 @@
+# Directorios de Visual Studio/IDE
+.vs/
+
+# Archivos ejecutables de C/C++
+*.exe
